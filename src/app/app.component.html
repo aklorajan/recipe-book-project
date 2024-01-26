@@ -1,0 +1,9 @@
+<app-header (navigateElement)="onNavigationBar($event)"></app-header>
+<div class="container">
+  <div class="row">
+    <div class="col-xm-12">
+      <app-recipes *ngIf="navigateElmentRecived === 'recipe'"></app-recipes>
+      <app-shopping-list *ngIf="navigateElmentRecived === 'shoppingList'"></app-shopping-list>
+    </div>
+  </div>
+</div>
