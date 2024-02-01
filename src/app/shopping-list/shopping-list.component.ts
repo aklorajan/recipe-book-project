@@ -9,7 +9,7 @@ import {ShoppingListService} from "./shopping-list.service";
 
 })
 export class ShoppingListComponent implements OnInit{
-  ingredients:Ingredient[] ;
+  ingredients:Ingredient[]=[] ;
 
   constructor(private sLService:ShoppingListService) {
 
@@ -22,11 +22,11 @@ this.ingredients =this.sLService.getIngredients();
       }
     );
 
-    this.sLService.ingredientChanged.subscribe(
-      (receivedIngredient:Ingredient)=>{
-        this.ingredients.push(receivedIngredient)
-      }
-    );
+    // this.sLService.ingredientChanged.subscribe(
+    //   (receivedIngredient:Ingredient)=>{
+    //     this.ingredients.push(receivedIngredient)
+    //   }
+    // );
   }
 
 

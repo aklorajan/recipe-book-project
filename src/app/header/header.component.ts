@@ -1,17 +1,15 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent {
- @Output() navigateElement = new EventEmitter<string>();
+export class HeaderComponent implements OnInit{
 
+ngOnInit() {
+}
 
-  onNavigate(navElement:string){
-      this.navigateElement.emit(navElement)
-
-  }
 
 }
