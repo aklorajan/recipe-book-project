@@ -5,7 +5,8 @@
     <ul class="list-group">
       <a class="list-group-item"
          style="cursor: pointer"
-         *ngFor="let ingredient of ingredients"
+         *ngFor="let ingredient of ingredients; let i = index"
+         (click)="onEditIng(i)"
      appHighlight [yellowColorBorder]="'1px solid blue'" blueColorBorder="1px solid green" >{{ingredient.name}} ({{ingredient.amount}}) </a>
     </ul>
   </div>
