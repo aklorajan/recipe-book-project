@@ -1,5 +1,4 @@
 export class User {
-
   constructor(
     public email: string,
     public id: string,
@@ -12,6 +11,7 @@ export class User {
       return null
     }
     return this._token
+
 
   }
 

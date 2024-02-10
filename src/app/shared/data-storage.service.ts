@@ -21,12 +21,8 @@ export class DataStorageService {
   }
 
   fetchRecipe(){
-   return this.authService.user.pipe(take(1),exhaustMap(user => {
-      return this.http.get<Recipe[]>('https://my-recipe-project-9b182-default-rtdb.firebaseio.com/recipes.json',
-        {
-          params : new HttpParams().set('auth', user.token)
-        })
-    }), map(recipes => {
+      return this.http.get<Recipe[]>('https://my-recipe-project-9b182-default-rtdb.firebaseio.com/recipes.json')
+        .pipe(map(recipes => {
       return recipes.map(recipes => {
         return {
           ...recipes, ingredients: recipes.ingredients ? recipes.ingredients : []
