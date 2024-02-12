@@ -10,13 +10,12 @@ export interface AuthResponseData {
   refreshToken: string;
   expiresIn: string;
   localId: string;
-  registered: boolean;
+  registered?: boolean;
 }
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
   user = new BehaviorSubject<User>(null)
-
   constructor(private http: HttpClient,
               private router:Router) {
   }
@@ -51,7 +50,7 @@ export class AuthService {
     localStorage.setItem('userData', JSON.stringify(user))
   }
 
-  outoLogin(){
+  autoLogin(){
     const userData: {
       email:string,
       id: string,
@@ -71,6 +70,7 @@ export class AuthService {
   logout(){
     this.user.next(null)
     this.router.navigate(['/auth'])
+    localStorage.removeItem('userData')
   }
 
   private handleError(err: HttpErrorResponse) {
